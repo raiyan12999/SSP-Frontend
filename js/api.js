@@ -1,5 +1,5 @@
 // js/api.js - FIXED: var at top level, globally accessible
-var API_BASE = 'https://ssp-backend-production-543e.up.railway.app';
+var API_BASE = 'https://ssp-backend-production-543e.up.railway.app/api';
 
 async function fetchAPI(endpoint) {
     // Safety: if endpoint is null/undefined, return early
