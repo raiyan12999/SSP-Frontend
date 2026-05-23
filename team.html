@@ -115,7 +115,7 @@
                       </div>
                       <div class="team-card__name">${m.name}</div>
                       <div class="team-card__role">${m.role}</div>
-                      <div class="team-card__bio">${m.bio.substring(0, 100)}...</div>
+                      <div class="team-card__bio">${m.bio ? m.bio.substring(0, 100)+ '...' : '' } </div>
                   </div>
               `).join('');
           }
