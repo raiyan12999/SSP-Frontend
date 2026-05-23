@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Team — Studio Spire</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <nav id="main-nav" class="scrolled">
+    <a href="index.html" class="nav-logo">
+      <img src="spire-logo-dark.png" alt="Studio Spire" class="nav-logo-img" />
+    </a>
+    <button class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay"></div>
+  <aside id="slide-menu">
+    <button class="menu-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </svg>
+    </button>
+    <div class="menu-section">
+      <div class="menu-section-label">Studio</div>
+      <nav class="menu-links">
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="team.html">Team</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="page-top">
+    <div class="page-header">
+      <p class="label reveal">Studio Spire</p>
+      <h1 class="reveal reveal-delay-1">A team of architects<br>who think, make, and build.</h1>
+    </div>
+  </div>
+
+  <!-- PARTNER GROUP PHOTO -->
+  <section style="padding:3rem var(--px) 0;">
+    <div class="container reveal">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
+        alt="Studio Spire team" class="team-group-photo"
+        style="width:100%;height:60vh;object-fit:cover;object-position:center 30%;" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- PARTNER BIOS — with photos -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Partners</h2>
+      </div>
+      <!-- Partners Section -->
+      <div class="partners-section" style="padding:0;" id="partners-grid">
+        <div class="loading">Loading partners...</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FULL TEAM GRID -->
+  <section style="padding-bottom:5rem;">
+    <div class="container">
+      <div class="section-header reveal"
+        style="padding:0 0 1.5rem;margin-bottom:2rem;border-bottom:1px solid var(--border);">
+        <h2>Studio Spire Team</h2>
+      </div>
+      <!-- Studio Team Grid Section -->
+      <div class="team-grid" id="team-grid">
+        <div class="loading">Loading team...</div>
+      </div>
+
+      <script src="js/api.js"></script>
+      <script>
+        async function loadTeam() {
+          const partners = await getPartners();
+          const team = await getTeam(); // Contains all, including partners
+
+          // Render Partners
+          const pGrid = document.getElementById('partners-grid');
+          if (partners && partners.length > 0) {
+            pGrid.innerHTML = partners.map(m => `
+                  <div class="partner-bio partner-bio--with-photo reveal">
+                      <img class="partner-bio__photo" src="${m.photoLargeUrl}" alt="${m.name}" loading="lazy"/>
+                      <div>
+                          <div class="partner-bio__name">${m.name}</div>
+                          <div class="partner-bio__role">${m.role}</div>
+                          <div style="margin-top:1rem;font-size:0.8rem;color:var(--mid);">${m.credentials}</div>
+                      </div>
+                      <p class="partner-bio__text">${m.bio}</p>
+                  </div>
+              `).join('');
+          }
+
+          // Render Full Team (excluding partners if you want them separate, or all)
+          const tGrid = document.getElementById('team-grid');
+          // Filter out partners for the grid section if desired
+          const gridMembers = team ? team.filter(m => !m.isPartner) : [];
+
+          if (gridMembers.length > 0) {
+            tGrid.innerHTML = gridMembers.map(m => `
+                  <div class="team-card reveal">
+                      <div class="team-card__img-wrap">
+                          <img class="team-card__img" src="${m.photoMediumUrl}" alt="${m.name}" loading="lazy"/>
+                      </div>
+                      <div class="team-card__name">${m.name}</div>
+                      <div class="team-card__role">${m.role}</div>
+                      <div class="team-card__bio">${m.bio.substring(0, 100)}...</div>
+                  </div>
+              `).join('');
+          }
+          if (typeof initReveal === 'function') initReveal();
+        }
+        document.addEventListener('DOMContentLoaded', loadTeam);
+      </script>
+    </div>
+  </section>
+
+  <!-- JOIN US -->
+  <section
+    style="background:var(--white);padding:4rem var(--px);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="intro-block">
+        <div class="reveal">
+          <p class="label" style="margin-bottom:1rem;">Join the Studio</p>
+          <h2
+            style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.2;margin-bottom:1.5rem;">
+            We are always interested in talented designers and architects.</h2>
+          <p style="color:var(--mid);margin-bottom:2rem;font-size:0.9rem;">Whether you're a fresh graduate or an
+            experienced architect, if you share our commitment to rigorous, thoughtful design — we'd love to hear from
+            you.</p>
+          <a href="contact.html" class="btn btn-outline">Send your Portfolio</a>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <img src="images\teamPage2.PNG" alt="Studio workspace" style="width:100%;aspect-ratio:4/3;object-fit:cover;"
+            loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER 
+  <footer>
+    <div class="footer-top">
+      <span class="footer-logo"><img src="spire-logo-white.png" alt="Studio Spire" class="footer-logo-img" /></span>
+       <span class="footer-tagline">Architecture &amp; Design Studio<br>Dhaka, Bangladesh</span>
+    </div>
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">Studio Spire</div>
+        <div class="footer-col-label">Navigation</div>
+        <ul class="footer-nav">
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-contact-item">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 2h3l1 3.5-1.5 1A9.5 9.5 0 009.5 9.5l1-1.5L14 9v3a1 1 0 01-1 1A12 12 0 012 3a1 1 0 011-1z"/>
+          </svg>
+          <a href="tel:+880793888888" class="fci-link">+880793162608</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 2h3l1 3.5-1.5 1A9.5 9.5 0 009.5 9.5l1-1.5L14 9v3a1 1 0 01-1 1A12 12 0 012 3a1 1 0 011-1z"/>
+          </svg>
+          <a href="tel:+880172988888" class="fci-link">+8801729522472</a>
+        </div>
+        <div class="footer-contact-item" style="margin-top:.75rem;">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 4l6 4 6-4M2 3h12a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V4a1 1 0 011-1z"/>
+          </svg>
+          <a href="mailto:studiospire20@gmail.com" class="fci-link">studiospire20@gmail.com</a>
+
+          
+        </div>
+        <div class="footer-contact-item" style="margin-top: .75rem;">
+            <a href="https://www.facebook.com/share/1aAY9ForTH/" class="fci-link" target="_blank" rel="noopener">
+              <svg class="fci-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+              </svg>
+              Studio Spire
+            </a>
+        </div>
+      </div>
+
+       col 3: address + follow 
+      <div>
+         <p class="footer-tagline">Studio Spire</p> 
+        <div class="footer-col-label">Address</div>
+        <p class="footer-address">
+          House 889, Kuwaiti Mosque Road<br>
+          Vatara, Dhaka 1229<br>
+          Bangladesh
+        </p>
+        <div class="footer-col-label">Working Hour</div>
+        <p class="footer-hour">
+          9:00 AM - 5:00PM<br>
+          Sunday- Thursday
+        </p>  
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Studio Spire. All rights reserved.</span>
+      <span class="footer-bottom-right">Build with intention.</span>
+    </div>
+  </footer> -->
+  <footer>
+    <div class="footer-top">
+      <span class="footer-tagline">Studio Spire</span>
+    </div>
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-contact-item">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 2h3l1 3.5-1.5 1A9.5 9.5 0 009.5 9.5l1-1.5L14 9v3a1 1 0 01-1 1A12 12 0 012 3a1 1 0 011-1z" />
+          </svg>
+          <a href="tel:+8801793162608" class="fci-link">+8801793162608</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 2h3l1 3.5-1.5 1A9.5 9.5 0 009.5 9.5l1-1.5L14 9v3a1 1 0 01-1 1A12 12 0 012 3a1 1 0 011-1z" />
+          </svg>
+          <a href="tel:+8801729522472" class="fci-link">+8801729522472</a>
+        </div>
+        <div class="footer-contact-item" style="margin-top:.75rem;">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 4l6 4 6-4M2 3h12a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V4a1 1 0 011-1z" />
+          </svg>
+          <a href="mailto:studiospire20@gmail.com" class="fci-link">studiospire20@gmail.com</a>
+        </div>
+        <div class="footer-contact-item" style="margin-top: .75rem;">
+          <a href="https://www.facebook.com/share/1aAY9ForTH/" class="fci-link" target="_blank" rel="noopener">
+            <svg class="fci-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+            </svg>
+            Studio Spire
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-label">Address</div>
+        <p class="footer-address">
+          House 889, Kuwaiti Mosque Road<br>
+          Vatara, Dhaka 1229<br>
+          Bangladesh
+        </p>
+        <div class="footer-col-label">Working Hour</div>
+        <p class="footer-hour">
+          10:00 AM - 6:00PM<br>
+          Saturday- Thursday
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Studio Spire. All rights reserved.</span>
+      <span class="footer-bottom-right">Build with intention.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

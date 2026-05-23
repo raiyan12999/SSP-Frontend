@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecture Projects — Studio Spire</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <nav id="main-nav" class="scrolled">
+    <a href="index.html" class="nav-logo">
+      <img src="spire-logo-dark.png" alt="Studio Spire" class="nav-logo-img" />
+    </a>
+    <button class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay"></div>
+  <aside id="slide-menu">
+    <button class="menu-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </svg>
+    </button>
+    <div class="menu-section">
+      <div class="menu-section-label">Studio</div>
+      <nav class="menu-links">
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="team.html">Team</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="page-top">
+    <div class="page-header">
+      <p class="label reveal"><a href="projects.html" style="color:var(--mid);">Projects</a> / <span
+          id="cat-label">Building Design</span></p>
+      <h1 class="reveal reveal-delay-1" id="cat-title">Building Design<br>Projects</h1>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="architecture">Architecture</button>
+    <button class="filter-btn" data-filter="commercial">Commercial</button>
+    <button class="filter-btn" data-filter="office">Office</button>
+    <button class="filter-btn" data-filter="residential">Residential</button>
+  </div>
+
+  <!-- PROJECT LISTING GRID -->
+  <section class="section" style="padding-top:2rem;">
+    <div class="container">
+      <!-- Inside <section class="section"> -> <div class="projects-grid"> -->
+      <div class="projects-grid" id="category-projects-grid">
+        <div class="loading">Loading category projects...</div>
+      </div>
+
+      <script src="js/api.js"></script>
+
+
+    </div>
+  </section>
+
+  <!-- FOOTER 
+  <footer>
+    <div class="footer-top">
+      <span class="footer-logo"><img src="spire-logo-white.png" alt="Studio Spire" class="footer-logo-img" /></span>
+      <span class="footer-tagline">Architecture &amp; Design Studio<br>Dhaka, Bangladesh</span> 
+    </div>
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">Studio Spire</div> 
+        <div class="footer-col-label">Navigation</div>
+        <ul class="footer-nav">
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-contact-item">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 2h3l1 3.5-1.5 1A9.5 9.5 0 009.5 9.5l1-1.5L14 9v3a1 1 0 01-1 1A12 12 0 012 3a1 1 0 011-1z"/>
+          </svg>
+          <a href="tel:+880793888888" class="fci-link">+880793162608</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 2h3l1 3.5-1.5 1A9.5 9.5 0 009.5 9.5l1-1.5L14 9v3a1 1 0 01-1 1A12 12 0 012 3a1 1 0 011-1z"/>
+          </svg>
+          <a href="tel:+880172988888" class="fci-link">+8801729522472</a>
+        </div>
+        <div class="footer-contact-item" style="margin-top:.75rem;">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 4l6 4 6-4M2 3h12a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V4a1 1 0 011-1z"/>
+          </svg>
+          <a href="mailto:studiospire20@gmail.com" class="fci-link">studiospire20@gmail.com</a>
+
+          
+        </div>
+        <div class="footer-contact-item" style="margin-top: .75rem;">
+            <a href="https://www.facebook.com/share/1aAY9ForTH/" class="fci-link" target="_blank" rel="noopener">
+              <svg class="fci-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+              </svg>
+              Studio Spire
+            </a>
+        </div>
+      </div>
+
+       col 3: address + follow 
+      <div>
+        <p class="footer-tagline">Studio Spire</p> 
+        <div class="footer-col-label">Address</div>
+        <p class="footer-address">
+          House 889, Kuwaiti Mosque Road<br>
+          Vatara, Dhaka 1229<br>
+          Bangladesh
+        </p>
+        <div class="footer-col-label">Working Hour</div>
+        <p class="footer-hour">
+          9:00 AM - 5:00PM<br>
+          Sunday- Thursday
+        </p>  
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Studio Spire. All rights reserved.</span>
+      <span class="footer-bottom-right">Build with intention.</span>
+    </div>
+  </footer> -->
+  <footer>
+    <div class="footer-top">
+      <span class="footer-tagline">Studio Spire</span>
+    </div>
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-contact-item">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 2h3l1 3.5-1.5 1A9.5 9.5 0 009.5 9.5l1-1.5L14 9v3a1 1 0 01-1 1A12 12 0 012 3a1 1 0 011-1z" />
+          </svg>
+          <a href="tel:+8801793162608" class="fci-link">+8801793162608</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 2h3l1 3.5-1.5 1A9.5 9.5 0 009.5 9.5l1-1.5L14 9v3a1 1 0 01-1 1A12 12 0 012 3a1 1 0 011-1z" />
+          </svg>
+          <a href="tel:+8801729522472" class="fci-link">+8801729522472</a>
+        </div>
+        <div class="footer-contact-item" style="margin-top:.75rem;">
+          <svg class="fci-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 4l6 4 6-4M2 3h12a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V4a1 1 0 011-1z" />
+          </svg>
+          <a href="mailto:studiospire20@gmail.com" class="fci-link">studiospire20@gmail.com</a>
+        </div>
+        <div class="footer-contact-item" style="margin-top: .75rem;">
+          <a href="https://www.facebook.com/share/1aAY9ForTH/" class="fci-link" target="_blank" rel="noopener">
+            <svg class="fci-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+            </svg>
+            Studio Spire
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-label">Address</div>
+        <p class="footer-address">
+          House 889, Kuwaiti Mosque Road<br>
+          Vatara, Dhaka 1229<br>
+          Bangladesh
+        </p>
+        <div class="footer-col-label">Working Hour</div>
+        <p class="footer-hour">
+          10:00 AM - 6:00PM<br>
+          Saturday- Thursday
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Studio Spire. All rights reserved.</span>
+      <span class="footer-bottom-right">Build with intention.</span>
+    </div>
+  </footer>
+
+  <!-- PROJECT MODAL -->
+  <!-- PROJECT MODAL - Must be before </body> tag -->
+  <div class="proj-modal-overlay" id="projModalOverlay"></div>
+  <div class="proj-modal" id="projModal" role="dialog" aria-modal="true">
+    <div class="proj-modal__image-col">
+      <img class="proj-modal__img" id="projModalImg" src="" alt="" />
+      <button class="proj-modal__nav proj-modal__nav--prev" id="projModalPrev">&#8592;</button>
+      <button class="proj-modal__nav proj-modal__nav--next" id="projModalNext">&#8594;</button>
+      <span class="proj-modal__img-counter" id="projModalCounter">1 / 3</span>
+    </div>
+    <div class="proj-modal__content-col">
+      <button class="proj-modal__close" id="projModalClose">&#215;</button>
+      <div class="proj-modal__content">
+        <div class="proj-modal__category" id="projModalCat"></div>
+        <h2 class="proj-modal__title" id="projModalTitle"></h2>
+        <p class="proj-modal__desc" id="projModalDesc"></p>
+        <div class="proj-modal__details-title">Project Details</div>
+        <div class="proj-modal__meta" id="projModalMeta"></div>
+      </div>
+      <div class="proj-modal__footer">
+        <button class="proj-modal__back" id="projModalBack">← Back</button>
+        <!-- <a class="proj-modal__view-full" id="projModalFull" href="#">View Full Project →</a> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- <script src="js/api.js"></script> -->
+  <script>
+    // ===== 1. PAGE SETUP =====
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat') || 'architecture';
+    const labelMap = {
+      architecture: 'Architecture',
+      office: 'Office',
+      residential: 'Residential',
+      commercial: 'Commercial',
+      all: 'All Projects'
+    };
+    const titleMap = {
+      architecture: 'Architecture<br>Projects',
+      office: 'Office<br>Projects',
+      residential: 'Residential<br>Projects',
+      commercial: 'Commercial<br>Projects',
+      all: 'All<br>Projects'
+    };
+    document.getElementById('cat-label').textContent = labelMap[cat] || 'Projects';
+    const titleEl = document.getElementById('cat-title');
+    if (titleEl) titleEl.innerHTML = titleMap[cat] || 'Projects';
+
+    // ===== 2. LOAD PROJECTS DYNAMICALLY =====
+    async function loadCategoryProjects() {
+      const grid = document.getElementById('category-projects-grid');
+      if (!grid) return;
+
+      const projects = await getProjectsByCategory(cat);
+
+      if (!projects || projects.length === 0) {
+        grid.innerHTML = '<p>No projects found in this category.</p>';
+        return;
+      }
+
+      grid.innerHTML = projects.map(p => `
+        <div class="project-card filterable" 
+             data-category="${p.category === 'ARCHITECTURE' ? 'architecture' : p.category.toLowerCase()}" 
+             data-project-id="${p.id}" 
+             style="aspect-ratio:4/3;cursor:pointer;">
+            <img class="project-card__img" src="${p.heroThumbnailUrl || 'images/placeholder.jpg'}" alt="${p.title}" loading="lazy"/>
+            <div class="project-card__info">
+                <div class="project-card__category">${p.category} · ${p.year}</div>
+                <div class="project-card__title">${p.title}</div>
+            </div>
+        </div>
+    `).join('');
+
+      if (typeof initReveal === 'function') initReveal();
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+
+        const grid = document.getElementById('category-projects-grid');
+        grid.innerHTML = '<div class="loading">Loading...</div>';
+
+        let projects;
+        if (filter === 'all') {
+          projects = await getProjects();
+        } else {
+          // temporarily swap cat for the fetch
+          const savedCat = cat;
+
+          projects = await getProjectsByCategory(filter);
+        }
+
+        if (!projects || projects.length === 0) {
+          grid.innerHTML = '<p style="color:var(--mid);padding:2rem 0;">No projects found.</p>';
+          return;
+        }
+
+        grid.innerHTML = projects.map(p => `
+            <div class="project-card filterable"
+                 data-project-id="${p.id}"
+                 style="aspect-ratio:4/3;cursor:pointer;">
+                <img class="project-card__img" src="${p.heroThumbnailUrl || ''}" alt="${p.title}" loading="lazy"/>
+                <div class="project-card__info">
+                    <div class="project-card__category">${p.category} · ${p.year}</div>
+                    <div class="project-card__title">${p.title}</div>
+                </div>
+            </div>
+        `).join('');
+      });
+    });
+
+    // ===== 3. MODAL LOGIC WITH NULL CHECKS =====
+    (function () {
+      // Check if modal HTML exists
+      const overlay = document.getElementById('projModalOverlay');
+      const modal = document.getElementById('projModal');
+
+      if (!overlay || !modal) {
+        console.warn('Modal HTML not found - skipping modal initialization');
+        return;
+      }
+
+      const imgEl = document.getElementById('projModalImg');
+      const counter = document.getElementById('projModalCounter');
+      const titleEl = document.getElementById('projModalTitle');
+      const catEl = document.getElementById('projModalCat');
+      const descEl = document.getElementById('projModalDesc');
+      const metaEl = document.getElementById('projModalMeta');
+      const closeBtn = document.getElementById('projModalClose');
+      const backBtn = document.getElementById('projModalBack');
+      const fullLink = document.getElementById('projModalFull');
+      const prevBtn = document.getElementById('projModalPrev');
+      const nextBtn = document.getElementById('projModalNext');
+
+      let currentProject = null;
+      let imgIdx = 0;
+      let projectImages = [];
+
+      function updateModalImage() {
+        if (!projectImages.length || !imgEl) return;
+        imgEl.style.opacity = 0;
+        imgEl.src = projectImages[imgIdx].mediumUrl || projectImages[imgIdx].largeUrl;
+        imgEl.alt = currentProject.title;
+        imgEl.onload = () => { imgEl.style.opacity = 1; };
+        if (counter) counter.textContent = `${imgIdx + 1} / ${projectImages.length}`;
+      }
+
+      async function openModal(projectId) {
+        if (!titleEl) return;
+        titleEl.textContent = 'Loading...';
+
+        const project = await getProjectById(projectId);
+        if (!project) return;
+
+        currentProject = project;
+        projectImages = project.images || [];
+        imgIdx = 0;
+
+        if (catEl) catEl.textContent = project.category || '';
+        if (titleEl) titleEl.textContent = project.title || '';
+        if (descEl) descEl.textContent = project.description || '';
+        if (fullLink) fullLink.href = `project-detail.html?id=${project.id}`;
+
+        const meta = [];
+        if (project.client) meta.push(['Client', project.client]);
+        if (project.location) meta.push(['Location', project.location]);
+        if (project.year) meta.push(['Year', project.year]);
+        if (project.status) meta.push(['Status', project.status]);
+        if (project.landArea) meta.push(['Land Area', project.landArea]);
+        if (project.builtArea) meta.push(['Built Area', project.builtArea]);
+
+        if (metaEl) {
+          metaEl.innerHTML = meta.map(([k, v]) =>
+            `<div class="proj-modal__meta-row"><span class="proj-modal__meta-key">${k}</span><span class="proj-modal__meta-val">${v}</span></div>`
+          ).join('');
+        }
+
+        if (projectImages.length > 0) updateModalImage();
+
+        overlay.classList.add('active');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        overlay.classList.remove('active');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // Safe event listeners with null checks
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (backBtn) backBtn.addEventListener('click', closeModal);
+      if (overlay) overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+      if (prevBtn) prevBtn.addEventListener('click', () => {
+        if (projectImages.length) {
+          imgIdx = (imgIdx - 1 + projectImages.length) % projectImages.length;
+          updateModalImage();
+        }
+      });
+      if (nextBtn) nextBtn.addEventListener('click', () => {
+        if (projectImages.length) {
+          imgIdx = (imgIdx + 1) % projectImages.length;
+          updateModalImage();
+        }
+      });
+
+      // Attach to grid with null check
+      const grid = document.getElementById('category-projects-grid');
+      if (grid) {
+        grid.addEventListener('click', (e) => {
+          const card = e.target.closest('[data-project-id]');
+          if (card) {
+            const id = card.dataset.projectId;
+            openModal(id);
+          }
+        });
+      }
+    })();
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', loadCategoryProjects);
+  </script>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
