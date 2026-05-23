@@ -2309,7 +2309,7 @@ footer {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
 }
 
 .project-card__img {

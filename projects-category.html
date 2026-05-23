@@ -270,7 +270,7 @@
         <div class="project-card filterable" 
              data-category="${p.category === 'ARCHITECTURE' ? 'architecture' : p.category.toLowerCase()}" 
              data-project-id="${p.id}" 
-             style="aspect-ratio:4/3;cursor:pointer;">
+             style="aspect-ratio:1/1;cursor:pointer;">
             <img class="project-card__img" src="${p.heroThumbnailUrl || 'images/placeholder.jpg'}" alt="${p.title}" loading="lazy"/>
             <div class="project-card__info">
                 <div class="project-card__category">${p.category} · ${p.year}</div>
@@ -309,7 +309,7 @@
         grid.innerHTML = projects.map(p => `
             <div class="project-card filterable"
                  data-project-id="${p.id}"
-                 style="aspect-ratio:4/3;cursor:pointer;">
+                 style="aspect-ratio:1/1;cursor:pointer;">
                 <img class="project-card__img" src="${p.heroThumbnailUrl || ''}" alt="${p.title}" loading="lazy"/>
                 <div class="project-card__info">
                     <div class="project-card__category">${p.category} · ${p.year}</div>
