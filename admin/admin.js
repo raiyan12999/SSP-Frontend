@@ -4,6 +4,11 @@
  */
 
 // ============================================================
+// API BASE URL — points to Railway backend
+// ============================================================
+const ADMIN_API_BASE = 'https://ssp-backend-production-543e.up.railway.app';
+
+// ============================================================
 // AUTH — check login and provide auth headers
 // ============================================================
 
@@ -95,7 +100,7 @@ function showLoading(containerId) {
  * @returns {Promise} The parsed JSON response
  */
 async function adminGet(url) {
-  const response = await fetch(url, { headers: authHeaders() });
+  const response = await fetch(ADMIN_API_BASE + url, { headers: authHeaders() });
   if (!response.ok) {
     const err = await response.json().catch(() => ({}));
     throw new Error(err.message || 'Request failed with status ' + response.status);
@@ -107,7 +112,7 @@ async function adminGet(url) {
  * Makes a POST request with JSON body to the admin API.
  */
 async function adminPost(url, body) {
-  const response = await fetch(url, {
+  const response = await fetch(ADMIN_API_BASE + url, {
     method: 'POST',
     headers: authHeaders(),
     body: JSON.stringify(body)
@@ -123,7 +128,7 @@ async function adminPost(url, body) {
  * Makes a PUT request with JSON body to the admin API.
  */
 async function adminPut(url, body) {
-  const response = await fetch(url, {
+  const response = await fetch(ADMIN_API_BASE + url, {
     method: 'PUT',
     headers: authHeaders(),
     body: JSON.stringify(body)
@@ -140,7 +145,7 @@ async function adminPut(url, body) {
  * Returns true on success (204 No Content).
  */
 async function adminDelete(url) {
-  const response = await fetch(url, {
+  const response = await fetch(ADMIN_API_BASE + url, {
     method: 'DELETE',
     headers: authHeaders()
   });
@@ -157,9 +162,9 @@ async function adminDelete(url) {
  * @param {FormData} formData - The form data containing the file
  */
 async function adminUpload(url, formData) {
-  const response = await fetch(url, {
+  const response = await fetch(ADMIN_API_BASE + url, {
     method: 'POST',
-    headers: authHeadersForUpload(), // No Content-Type — browser sets it for multipart
+    headers: authHeadersForUpload(),
     body: formData
   });
   if (!response.ok) {
@@ -173,7 +178,6 @@ async function adminUpload(url, formData) {
 // SIDEBAR — mark current page as active
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-  // Highlight the current page in the sidebar nav
   const currentPath = window.location.pathname;
   document.querySelectorAll('.sidebar-nav a').forEach(link => {
     if (link.getAttribute('href') === currentPath ||
@@ -182,7 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Show the logged-in username if available
   const usernameEl = document.getElementById('sidebarUsername');
   if (usernameEl) {
     usernameEl.textContent = sessionStorage.getItem('adminUsername') || 'Admin';

@@ -163,7 +163,7 @@
           const formData = new FormData();
           formData.append('file', photoFile);
           // CORRECT — raw fetch with PUT, same multipart headers
-          const res = await fetch('/api/admin/team/' + editId + '/photo', {
+          const res = await fetch('https://ssp-backend-production-543e.up.railway.app/api/admin/team/' + editId + '/photo', {
               method: 'PUT',
               headers: authHeadersForUpload(),
               body: formData

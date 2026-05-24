@@ -83,7 +83,7 @@
       // Test the credentials by calling a protected endpoint with Basic Auth
       // If it returns 200, the credentials are valid
       const credentials = btoa(username + ':' + password);
-      const response = await fetch('/api/admin/dashboard', {
+      const response = await fetch('https://ssp-backend-production-543e.up.railway.app/api/admin/dashboard', {
         headers: { 'Authorization': 'Basic ' + credentials }
       });
 
